@@ -40,6 +40,13 @@ const ColourRow = styled.div`
   
 `
 
+const ColourDoubleRow = styled.div` 
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 10px 0;
+`
+
 const ColourDummy = styled.div` 
   display: flex;
   flex: 1;
@@ -240,5 +247,69 @@ export const Light = () => {
         </ColourRow>
       </Wrapper>
     </FullBlackWrapper>
+  );
+}
+
+const SpecialNegative = styled(ColourBox)` 
+  color: ${special.negative_background()};
+  background: ${special.negative()};
+`
+
+const SpecialNegativeBackground = styled(ColourBox)` 
+  color: ${special.negative()};
+  background: ${special.negative_background()};
+`
+
+const SpecialPositive = styled(ColourBox)` 
+  color: ${special.positive_background()};
+  background: ${special.positive()};
+`
+
+const SpecialPositiveBackground = styled(ColourBox)` 
+  color: ${special.positive()};
+  background: ${special.positive_background()};
+`
+
+const SpecialWarning = styled(ColourBox)` 
+  color: ${special.warning_background()};
+  background: ${special.warning()};
+`
+
+const SpecialWarningBackground = styled(ColourBox)` 
+  color: ${special.warning()};
+  background: ${special.warning_background()};
+`
+
+const SpecialNeutral = styled(ColourBox)` 
+  color: ${special.neutral_background()};
+  background: ${special.neutral()};
+`
+
+const SpecialNeutralBackground = styled(ColourBox)` 
+  color: ${special.neutral()};
+  background: ${special.neutral_background()};
+`
+
+export const Special = () => {
+  return (
+    <Wrapper>
+      <ColourDoubleRow>
+        <SpecialNegative><span>Negative</span><Hex>#FD5C63</Hex></SpecialNegative>
+        <SpecialNegativeBackground><span>Negative Background</span><Hex>#FFE7E8</Hex></SpecialNegativeBackground>
+      </ColourDoubleRow>
+      <ColourDoubleRow>
+        <SpecialPositive><span>Positive</span><Hex>#04A77D</Hex></SpecialPositive>
+        <SpecialPositiveBackground><span>Positive Background</span><Hex>#D9F2EC</Hex></SpecialPositiveBackground>
+      </ColourDoubleRow>
+      <ColourDoubleRow>
+        <SpecialWarning><span>Warning</span><Hex>#FF4F00</Hex></SpecialWarning>
+        <SpecialWarningBackground><span>Warning Background</span><Hex>#FFE5D9</Hex></SpecialWarningBackground>
+      </ColourDoubleRow>
+      <ColourDoubleRow>
+        <SpecialNeutral><span>Neutral</span><Hex>#002FA7</Hex></SpecialNeutral>
+        <SpecialNeutralBackground><span>Neutral Background</span><Hex>#D9E0F2</Hex></SpecialNeutralBackground>
+      </ColourDoubleRow>
+    </Wrapper>
+    
   );
 }
