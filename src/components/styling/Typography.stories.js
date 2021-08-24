@@ -4,7 +4,7 @@ import { typography } from './typography';
 import { fontstack } from './fontstack';
 
 export default {
-  title: 'Styling',
+  title: 'Typography',
   parameters:{
     layout:'fullscreen',
   }
@@ -149,7 +149,7 @@ const Metadata1 = styled.p`
   padding: 30px 0;
 `
 
-export const Typography = () => {
+export const Default = () => {
 
   const headStructure = ['Type Style','Typeface','Weight','Case','Size','Line','Character','Code'];
   const typeStructure = [
