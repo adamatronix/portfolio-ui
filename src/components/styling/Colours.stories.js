@@ -14,18 +14,30 @@ export default {
 const Wrapper = styled.div` 
   max-width: 800px;
   width: 100%;
+  overflow: hidden;
 `
 
 const ColourRow = styled.div` 
   display: flex;
   margin: 10px 0;
-  background-image:
+  position: relative;
+
+  &:after {
+    position: absolute;
+    background-image:
       linear-gradient(45deg, #fafafa 25%, transparent 25%),
       linear-gradient(45deg, transparent 75%, #fafafa 75%),
       linear-gradient(45deg, transparent 75%, #fafafa 75%),
       linear-gradient(45deg, #fafafa 25%, transparent 25%);  
     background-size: 20px 20px;       
     background-position:0 0, 0 0, -50px -50px, 50px 50px;
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: ${props => props.dark ? '0.1' : '1'};
+  }
+  
 `
 
 const ColourDummy = styled.div` 
@@ -33,6 +45,7 @@ const ColourDummy = styled.div`
   flex: 1;
   padding: 40px;
   border-radius: 2px;
+  z-index: 1;
 `
 
 const ColourDummyWhite = styled(ColourDummy)`
@@ -40,7 +53,7 @@ const ColourDummyWhite = styled(ColourDummy)`
 `
 
 const ColourDummyBlack = styled(ColourDummy)`
-  background: black;
+  background: #222;
 `
 
 const ColourBox = styled.div` 
@@ -51,6 +64,7 @@ const ColourBox = styled.div`
   justify-content: space-between;
   padding: 40px;
   border-radius: 2px;
+  z-index: 1;
 `
 
 const Hex = styled.span` 
@@ -142,5 +156,89 @@ export const Dark = () => {
       </ColourRow>
     </Wrapper>
     
+  );
+}
+
+const FullBlackWrapper = styled.div` 
+  background: #222;
+  width: 100%;
+  height: 100vh;
+`
+
+const LightWhite = styled(ColourBox)` 
+  color: #222;
+  background: ${light.white()};
+`
+
+const LightSecondary = styled(ColourBox)` 
+  color: #222;
+  background: ${light.secondary()};
+`
+
+const LightSecondaryTransparent = styled(ColourBox)` 
+  flex: 1;
+  color: #222;
+  background: ${light.secondary(true)};
+`
+
+const LightTertiary = styled(ColourBox)` 
+  color: ${light.white()};
+  background: ${light.tertiary()};
+`
+
+const LightTertiaryTransparent = styled(ColourBox)` 
+  flex: 1;
+  color: ${light.white()};
+  background: ${light.tertiary(true)};
+`
+
+const LightQuaternary = styled(ColourBox)` 
+  color: ${light.white()};
+  background: ${light.quaternary()};
+`
+
+const LightQuaternaryTransparent = styled(ColourBox)` 
+  flex: 1;
+  color: ${light.white()};
+  background: ${light.quaternary(true)};
+`
+
+const LightBackground = styled(ColourBox)` 
+  color: ${light.white()};
+  background: ${light.background()};
+`
+
+const LightBackgroundTransparent = styled(ColourBox)` 
+  flex: 1;
+  color: ${light.white()};
+  background: ${light.background(true)};
+`
+export const Light = () => {
+
+  return (
+    <FullBlackWrapper>
+      <Wrapper>
+        <ColourRow>
+          <LightWhite><span>White</span><Hex>#FFFFFF</Hex></LightWhite>
+          <ColourDummyBlack/>
+        </ColourRow>
+        <ColourRow dark={true}>
+          <LightSecondary><span>Secondary</span><Hex>#909090</Hex></LightSecondary>
+          <LightSecondaryTransparent><Hex>#FFFFFF / 0.5</Hex></LightSecondaryTransparent >
+        </ColourRow>
+        <ColourRow dark={true}>
+          <LightTertiary><span>Tertiary</span><Hex>#4E4E4E</Hex></LightTertiary>
+          <LightTertiaryTransparent><Hex>#FFFFFF / 0.2</Hex></LightTertiaryTransparent >
+        </ColourRow>
+        <ColourRow dark={true}>
+          <LightQuaternary><span>Quaternary</span><Hex>#383838</Hex></LightQuaternary>
+          <LightQuaternaryTransparent><Hex>#FFFFFF / 0.1</Hex></LightQuaternaryTransparent >
+        </ColourRow>
+        <ColourRow dark={true}>
+          <LightBackground><span>Background</span><Hex>#2D2D2D</Hex></LightBackground>
+          <LightBackgroundTransparent><Hex>#FFFFFF / 0.05</Hex></LightBackgroundTransparent >
+        </ColourRow>
+      </Wrapper>
+    </FullBlackWrapper>
   );
 }
