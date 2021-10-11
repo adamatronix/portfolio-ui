@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Facebook, Twitter } from './Iconography';
+import { Facebook, Twitter, Instagram, LinkedIn } from './Iconography';
 
 export default {
   title: 'Iconography',
@@ -17,13 +17,16 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(10, 1fr);
   position: relative;
   width: 100%;
-  height: 100vh;
   background: #FAFAFA;
   box-sizing: border-box;
 `
 
+const Row = styled.div` 
+  display: block;
+`
+
 const IconWrap = styled.div` 
-  background: white;
+  background: ${props => props.bg ? props.bg : 'white'};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,13 +38,39 @@ const IconWrap = styled.div`
 
 export const Default = () => {
   return (
-    <Wrapper>
-      <IconWrap>
-        <Facebook type="colour"/>
-      </IconWrap>
-      <IconWrap>
-        <Twitter type="colour"/>
-      </IconWrap>
-    </Wrapper>
+    <>
+    <Row>
+      <Wrapper>
+        <IconWrap>
+          <Facebook type="colour"/>
+        </IconWrap>
+        <IconWrap>
+          <Twitter type="colour"/>
+        </IconWrap>
+        <IconWrap>
+          <Instagram type="colour"/>
+        </IconWrap>
+        <IconWrap>
+          <LinkedIn type="colour"/>
+        </IconWrap>
+      </Wrapper>
+    </Row>
+    <Row>
+      <Wrapper>
+        <IconWrap bg='black'>
+          <Facebook/>
+        </IconWrap>
+        <IconWrap bg='black'>
+          <Twitter/>
+        </IconWrap>
+        <IconWrap bg='black'>
+          <Instagram/>
+        </IconWrap>
+        <IconWrap bg='black'>
+          <LinkedIn/>
+        </IconWrap>
+      </Wrapper>
+    </Row>
+    </>
   );
 }

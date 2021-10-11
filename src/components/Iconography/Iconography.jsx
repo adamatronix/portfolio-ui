@@ -1,8 +1,14 @@
 import React from 'react';
-import { ReactComponent as FbIcon } from './assets/facebook.svg';
-import { ReactComponent as FbIconNeg } from './assets/facebook-negative.svg';
-import { ReactComponent as TwitterIcon } from './assets/twitter.svg';
-import { ReactComponent as TwitterIconNeg } from './assets/twitter-negative.svg';
+import {
+  FbIcon,
+  FbIconNeg,
+  TwitterIcon,
+  TwitterIconNeg,
+  InstaIcon,
+  InstaIconNeg,
+  LinkedIcon,
+  LinkedIconNeg
+} from './assets/index';
 
 const Base = (props) => {
   const { colour, white, type } = props;
@@ -10,6 +16,7 @@ const Base = (props) => {
 }
 const Facebook = (props) => {
   const { type } = props;
+  
   return (
     <Base colour={<FbIcon/>} white={<FbIconNeg/>} type={type}/>
   )
@@ -25,3 +32,21 @@ const Twitter = (props) => {
 }
 
 export { Twitter };
+
+const Instagram = (props) => {
+  const { type } = props;
+  return (
+    <Base colour={<InstaIcon />} white={<InstaIconNeg />} type={type}/>
+  )
+}
+
+export { Instagram };
+
+const LinkedIn = (props) => {
+  const { type } = props;
+  return (
+    <Base colour={<LinkedIcon />} white={<LinkedIconNeg />} type={type}/>
+  )
+}
+
+export { LinkedIn };
